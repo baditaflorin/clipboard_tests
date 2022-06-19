@@ -38,8 +38,8 @@ function copyTextToClipboard(text) {
   });
 }
 
-let gettextarea=document.querySelector('js-current-clipboard');
-console.log(gettextarea);
+var getTextArea=document.querySelector('js-current-clipboard');
+console.log(getTextArea);
 
 var copyBobBtn = document.querySelector('.js-copy-bob-btn'),
   copyJaneBtn = document.querySelector('.js-copy-jane-btn');
@@ -52,3 +52,15 @@ copyBobBtn.addEventListener('click', function(event) {
 copyJaneBtn.addEventListener('click', function(event) {
   copyTextToClipboard('Jane');
 });
+
+function update_textarea() {
+  navigator.clipboard
+  .readText()
+  .then((copiedText) => {
+        console.log(copiedText)
+   });
+
+}
+
+update_textarea();
+
