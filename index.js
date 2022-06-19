@@ -38,6 +38,9 @@ function copyTextToClipboard(text) {
   });
 }
 
+let gettextarea=document.querySelector('js-current-clipboard');
+console.log(gettextarea);
+
 var copyBobBtn = document.querySelector('.js-copy-bob-btn'),
   copyJaneBtn = document.querySelector('.js-copy-jane-btn');
 
