@@ -101,10 +101,12 @@ import streamSaver from 'streamsaver'
           pump()
         })
 }
-latest_clipboard_text=update_textarea_from_clipboard();
-    uInt8=new TextEncoder().encode(latest_clipboard_text)
 
       $saveClipboard.onclick = () => {
+        var latest_clipboard_text=update_textarea_from_clipboard();
+        console.log(latest_clipboard_text)
+    var uInt8=new TextEncoder().encode(latest_clipboard_text)
+
         const fileStream = streamSaver.createWriteStream('filename.txt', {
           size: uInt8.byteLength, // (optional filesize) Will show progress
           writableStrategy: undefined, // (optional)
