@@ -143,15 +143,21 @@ import streamSaver from 'streamsaver'
 
 
 
-let base64="iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
-let buffer=Uint8Array.from(atob(base64), c => c.charCodeAt(0));
-let blob=new Blob([buffer], { type: "image/gif" });
-let url=URL.createObjectURL(blob);
-let img=document.createElement("img");
-img.src=url;
-document.body.appendChild(img);
+// let base64="iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+// let buffer=Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+// let blob=new Blob([buffer], { type: "image/gif" });
+// let url=URL.createObjectURL(blob);
+// let img=document.createElement("img");
+// img.src=url;
+// document.body.appendChild(img);
 
 var url_string = window.location.href; //window.location.href
 var url_obj = new URL(url_string);
-var c = url_obj.searchParams.get("image");
-console.log(c);
+var base64_from_params = url_obj.searchParams.get("image");
+
+let secondbuffer=Uint8Array.from(atob(base64_from_params), c => c.charCodeAt(0));
+let secondblob=new Blob([secondbuffer], { type: "image/gif" });
+let secondurl=URL.createObjectURL(secondblob);
+let img=document.createElement("img");
+img.src=secondurl;
+document.body.appendChild(img);
